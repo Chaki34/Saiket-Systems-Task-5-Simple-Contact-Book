@@ -1,0 +1,413 @@
+:root {
+    --primary: #5046e5;
+    --primary-hover: #4338ca;
+    --primary-light: #eef2ff;
+    --accent: #f43f5e;
+    --accent-light: #ffe4e6;
+    --emerald: #10b981;
+    --emerald-light: #ecfdf5;
+    --dark: #0f172a;
+    --text-muted: #64748b;
+    --bg-body: #f8fafc;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --radius-sm: 10px;
+    --shadow-soft: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+    --shadow-hover: 0 20px 25px -5px rgba(80, 70, 229, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-body);
+    color: var(--dark);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Ambient glow accents */
+.bg-shape {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: -1;
+    opacity: 0.45;
+    pointer-events: none;
+}
+.bg-shape-1 {
+    top: -50px;
+    left: -50px;
+    background: linear-gradient(135deg, #a5b4fc, #818cf8);
+}
+.bg-shape-2 {
+    top: 250px;
+    right: -100px;
+    background: linear-gradient(135deg, #fbcfe8, #fda4af);
+}
+
+/* Navigation Bar */
+.app-navbar {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 14px 0;
+}
+
+.brand-icon {
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, var(--primary), #818cf8);
+    color: #ffffff;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    box-shadow: 0 4px 12px rgba(80, 70, 229, 0.25);
+}
+
+.navbar-brand {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--dark);
+}
+
+.brand-highlight {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bg-badge-pro {
+    background-color: var(--primary-light);
+    color: var(--primary);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+/* Hero Section */
+.hero-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    letter-spacing: -0.03em;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary), #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    max-width: 500px;
+    font-size: 1rem;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #ffffff;
+    padding: 6px 14px;
+    border-radius: 30px;
+    border: 1px solid var(--border-color);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    box-shadow: var(--shadow-soft);
+}
+
+/* Cards */
+.app-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    font-size: 1.4rem;
+}
+
+.icon-add {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+/* Input Fields with icons */
+.input-group-custom {
+    position: relative;
+}
+
+.input-group-custom > i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    pointer-events: none;
+    transition: color 0.2s ease;
+}
+
+.form-label {
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 6px;
+}
+
+.input-group-custom .form-control {
+    padding-left: 46px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--border-color);
+    background-color: #fafbfc;
+    font-size: 0.95rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.input-group-custom .form-control:focus {
+    background-color: #ffffff;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(80, 70, 229, 0.12);
+}
+
+.input-group-custom .form-control:focus + i,
+.input-group-custom:focus-within > i {
+    color: var(--primary);
+}
+
+/* Buttons */
+.btn {
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    padding: 12px 20px;
+    transition: all 0.2s ease;
+}
+
+.btn-gradient {
+    background: linear-gradient(135deg, var(--primary), #6366f1);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 6px 16px -2px rgba(80, 70, 229, 0.35);
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(135deg, var(--primary-hover), #4f46e5);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px -2px rgba(80, 70, 229, 0.45);
+}
+
+.btn-secondary-soft {
+    background-color: #f1f5f9;
+    color: var(--text-muted);
+    border: none;
+}
+
+.btn-secondary-soft:hover {
+    background-color: #e2e8f0;
+    color: var(--dark);
+}
+
+/* Contact Count Chip */
+.contact-count-chip {
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Search Box */
+.search-box {
+    position: relative;
+}
+
+.search-box > i {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    z-index: 2;
+}
+
+.form-control-search {
+    height: 50px;
+    padding-left: 48px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--border-color);
+    background-color: #ffffff;
+}
+
+.form-control-search:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(80, 70, 229, 0.12);
+}
+
+/* Contact Item Styles */
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: #ffffff;
+    margin-bottom: 12px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-item:hover {
+    border-color: #c7d2fe;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 0;
+}
+
+.contact-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+    color: var(--primary);
+    font-weight: 800;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-details {
+    min-width: 0;
+}
+
+.contact-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contact-detail-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+}
+
+.contact-detail {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+}
+
+.contact-detail i {
+    color: #94a3b8;
+}
+
+.contact-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.delete-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    background: var(--accent-light);
+    color: var(--accent);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+    background: var(--accent);
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+/* Empty State */
+.empty-icon-wrap {
+    width: 70px;
+    height: 70px;
+    background: #f1f5f9;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    .contact-actions {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+    }
+
+    .contact-detail-items {
+        flex-direction: column;
+        gap: 4px;
+    }
+}
+
+@media (max-width: 576px) {
+    .app-card {
+        border-radius: var(--radius-md);
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .app-card .card-body {
+        padding: 1.25rem !important;
+    }
+}
